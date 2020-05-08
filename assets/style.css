@@ -1,0 +1,117 @@
+.header {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;
+	color: #ccc;
+	text-align: center;
+}
+#carousel-container{
+	width: 960px;
+	height: 240px;
+	position: relative;
+	margin: 50px auto 0;
+  	border: 1px solid #ccc;
+	border-radius: 10px;
+}
+
+#carousel-container > div:first-child{
+	overflow: hidden;
+	max-width: 100%;
+	margin: 0;
+}
+
+#carousel{
+	position: relative;
+	width: 320px;
+	height: 240px;
+  	padding: 0;
+  	margin: 0;
+}
+
+.animate{
+	-webkit-transition-duration: .5s;
+    -moz-transition-duration: .5s;
+    -o-transition-duration: .5s;
+    transition-duration: .5s;
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+}
+
+.slide {
+ list-style: none;
+	position: relative;
+	float: left;
+	transform: translateX(-320px)
+}
+
+#controls{
+	position: absolute;
+  	width: 1100px;
+	top: calc( 50% - 25px);
+	margin: 0 -70px;
+}
+
+#controls span {
+	width: 50px;
+	cursor: pointer;
+	opacity: 0.4;
+}
+#controls span:hover {
+	opacity: 1;
+}
+
+#prev{
+	float: left;
+}
+
+#next{
+	float: right;
+}
+
+@media only screen and (max-width: 1100px) {
+	#carousel-container{
+		width: 640px;
+		height: 240px;
+		position: relative;
+		margin: 50px auto 0;
+		border: 1px solid #ccc;
+		border-radius: 10px;
+	}
+}
+
+@media only screen and (max-width: 1100px) {
+	#carousel-container{
+		width: 640px;
+		height: 240px;
+		position: relative;
+		margin: 50px auto 0;
+		border: 1px solid #ccc;
+		border-radius: 10px;
+	}
+
+	#controls{
+		position: absolute;
+		width: 780px;
+		top: calc( 50% - 25px);
+		margin: 0 -70px;
+	}
+}
+
+
+@media only screen and (max-width: 768px) {
+	#carousel-container{
+		width: 320px;
+		height: 240px;
+		position: relative;
+		margin: 50px auto 0;
+		border: 1px solid #ccc;
+		border-radius: 10px;
+	}
+
+	#controls{
+		position: absolute;
+		width: 450px;
+		top: calc( 50% - 25px);
+		margin: 0 -70px;
+	}
+}
