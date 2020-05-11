@@ -8,18 +8,15 @@ var transitionCompleted = function(){
     translationComplete = true;
 }
 
-document.addEventListener("DOMContentLoaded", function(event) 
-{
+document.addEventListener("DOMContentLoaded", function(event) {
     var carousel = document.getElementById('carousel');
-
     amount = document.getElementsByClassName("slide").length;
     // get the width of the container
     // moveOffset = parseInt(window.getComputedStyle(document.getElementById('carousel-container')).width, 10);
     // calcuate the width of the carousel
     document.getElementById('carousel').style.width = (amount * moveOffset) + 'px';
     // prevent multiple click when transition
-    for(var i = 0; i < amount; i++)
-    {
+    for(var i = 0; i < amount; i++){
         currTransl[i] = -moveOffset;
         document.getElementsByClassName("slide")[i].addEventListener("transitionend", transitionCompleted, true);                    
         document.getElementsByClassName("slide")[i].addEventListener("webkitTransitionEnd", transitionCompleted, true);                    
@@ -33,19 +30,16 @@ document.addEventListener("DOMContentLoaded", function(event)
     document.getElementById('next').addEventListener('click', next, true);
 });
 
-function prev()
-{
+function prev(){
     if(translationComplete === true)
     {
         translationComplete = false;
         index--;
-        if(index == -1)
-        {
+        if(index == -1){
             index = amount-1;
         }
         var outerIndex = (index) % amount;
-        for(var i = 0; i < amount; i++)
-        {
+        for(var i = 0; i < amount; i++){
             var slide = document.getElementsByClassName("slide")[i];    
             slide.style.opacity = '1';    
             slide.style.transform = 'translateX('+(currTransl[i]+moveOffset)+'px)';
@@ -58,20 +52,18 @@ function prev()
     }
 }
 
-function next()
-{
-    if(translationComplete === true)
-    {
+function next(){
+    if(translationComplete === true){
         translationComplete = false;
         var outerIndex = (index) % amount;
         index++;
-        for(var i = 0; i < amount; i++)
-        {
+        for(var i = 0; i < amount; i++){
             var slide = document.getElementsByClassName("slide")[i];    
             slide.style.opacity = '1';    
             slide.style.transform = 'translateX('+(currTransl[i]-moveOffset)+'px)';
             currTransl[i] = currTransl[i]-moveOffset;
         }
+        
         var outerSlide = document.getElementsByClassName("slide")[outerIndex];
         outerSlide.style.transform = 'translateX('+(currTransl[outerIndex]+(moveOffset*amount))+'px)';
         outerSlide.style.opacity = '0';
